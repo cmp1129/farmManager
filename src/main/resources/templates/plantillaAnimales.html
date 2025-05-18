@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Animales en la Granja</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  </head>
+  <body>
+    <h1>Lista de Animales</h1>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Especie</th>
+        <th>Edad</th>
+      </tr>
+      <tr th:each="animal : ${listaAnimales}">
+        <td th:text="${animal.id}"></td>
+        <td th:text="${animal.nombre}"></td>
+        <td th:text="${animal.especie}"></td>
+        <td th:text="${animal.edad}"></td>
+      </tr>
+    </table>
+
+    <script th:src="@{/js/script.js}"></script>
+  </body>
+</html>
