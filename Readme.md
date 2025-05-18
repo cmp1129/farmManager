@@ -1,6 +1,6 @@
-# 🐄🌾 FarmManager Pro
+# 🐄🌾 FarmManager
 
-FarmManager Pro es una aplicación de gestión integral de explotaciones agrícolas y ganaderas. Este proyecto nace como parte de un TFG universitario, con la idea de proporcionar una solución digital adaptable a las necesidades reales de los granjeros, modernizando la administración de animales, cultivos, maquinaria, empleados y finanzas.
+FarmManager Pro es una aplicación de gestión integral de explotaciones agrícolas y ganaderas. Este proyecto nace con la idea de proporcionar una solución digital adaptable a las necesidades reales de los granjeros, modernizando la administración de animales, cultivos, maquinaria, empleados y finanzas.
 
 ---
 
@@ -39,13 +39,13 @@ src/
 
 ## 🛠️ Tecnologías utilizadas
 
-- **Java 21**
-- **Spring Boot 3**
+- **Java 17**
+- **Spring Boot 3.4.5**
 - **Spring MVC**
 - **Spring Data JPA**
 - **Thymeleaf**
 - **H2 Database (en desarrollo)**
-- **Maven**
+- **Gradle**
 
 ---
 
