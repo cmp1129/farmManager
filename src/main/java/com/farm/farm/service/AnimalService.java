@@ -25,10 +25,6 @@ public class AnimalService {
         animalRepository.deleteById(id);
     }
 
-    public List<Animal> buscarPorEspecie(String especie) {
-        return animalRepository.findByEspecie(especie);
-    }
-
     public List<Animal> listarTodos() {
         return animalRepository.findAll();
     }
@@ -36,4 +32,13 @@ public class AnimalService {
     public void guardar(Animal animal) {
         animalRepository.save(animal);
     }
+
+    public List<Animal> buscarPorEspecie(String especie) {
+        return animalRepository.findByEspecie(especie);
+    }
+
+    public List<String> listarUbicaciones() {
+        return animalRepository.findDistinctUbicaciones();
+    }
+
 }

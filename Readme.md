@@ -1,6 +1,6 @@
 # 🐄🌾 FarmManager
 
-FarmManager Pro es una aplicación de gestión integral de explotaciones agrícolas y ganaderas. Este proyecto nace con la idea de proporcionar una solución digital adaptable a las necesidades reales de los granjeros, modernizando la administración de animales, cultivos, maquinaria, empleados y finanzas.
+FarmManager es una aplicación de gestión integral de explotaciones agrícolas y ganaderas. Este proyecto nace con la idea de proporcionar una solución digital adaptable a las necesidades reales de los granjeros, modernizando la administración de animales, cultivos, maquinaria, empleados y finanzas.
 
 ---
 

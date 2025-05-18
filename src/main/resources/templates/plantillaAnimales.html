@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
+    <meta charset="UTF-8" />
     <title>Animales en la Granja</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
   </head>
@@ -12,12 +13,52 @@
         <th>Nombre</th>
         <th>Especie</th>
         <th>Edad</th>
+        <th>Peso (kg)</th>
+        <th>Sexo</th>
+        <th>Raza</th>
+        <th>Ubicación</th>
+        <th>Salud</th>
+        <th>Embarazada</th>
+        <th>Observaciones</th>
+        <th>Acción</th>
       </tr>
       <tr th:each="animal : ${listaAnimales}">
-        <td th:text="${animal.id}"></td>
-        <td th:text="${animal.nombre}"></td>
-        <td th:text="${animal.especie}"></td>
-        <td th:text="${animal.edad}"></td>
+        <form
+          th:action="@{/animales/actualizar/{id}(id=${animal.id})}"
+          method="post"
+          th:object="${animal}"
+        >
+          <td th:text="${animal.id}"></td>
+          <td th:text="${animal.nombre}"></td>
+          <td th:text="${animal.especie}"></td>
+          <td th:text="${animal.edad}"></td>
+          <td th:text="${animal.peso}"></td>
+          <td th:text="${animal.sexo}"></td>
+          <td th:text="${animal.raza}"></td>
+          <td>
+            <select name="ubicacion">
+              <option
+                th:each="ubic : ${ubicaciones}"
+                th:value="${ubic}"
+                th:text="${ubic}"
+                th:selected="${ubic == animal.ubicacion.toString()}"
+              ></option>
+            </select>
+          </td>
+          <td th:text="${animal.estadoSalud}"></td>
+          <td th:text="${animal.embarazada ? 'Sí' : 'No'}"></td>
+          <td>
+            <textarea
+              name="observaciones"
+              rows="2"
+              cols="20"
+              th:text="${animal.observaciones}"
+            ></textarea>
+          </td>
+          <td>
+            <button type="submit">Guardar</button>
+          </td>
+        </form>
       </tr>
     </table>
 

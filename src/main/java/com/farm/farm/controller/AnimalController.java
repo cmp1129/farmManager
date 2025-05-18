@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.farm.farm.model.Animal;
 import com.farm.farm.service.AnimalService;
@@ -22,7 +24,9 @@ public class AnimalController {
     @GetMapping("/animales")
     public String verAnimales(Model model) {
         List<Animal> lista = animalService.listarTodos();
+        List<String> ubicaciones = animalService.listarUbicaciones();
         model.addAttribute("listaAnimales", lista);
+        model.addAttribute("ubicaciones", ubicaciones);
         return "plantillaAnimales";
     }
 
@@ -31,6 +35,22 @@ public class AnimalController {
         List<Animal> lista = animalService.buscarPorEspecie(especie);
         model.addAttribute("listaAnimales", lista);
         return "plantillaAnimales";
+    }
+
+    @PostMapping("/animales/actualizar/{id}")
+    public String actualizarAnimal(@PathVariable Long id,
+            @RequestParam String ubicacion,
+            @RequestParam String observaciones) {
+        Animal animal = animalService.findById(id);
+
+        // Convertir String a enum Ubicacion
+        Animal.Ubicacion nuevaUbicacion = Animal.Ubicacion.valueOf(ubicacion.toUpperCase());
+        System.out.println(ubicacion);
+
+        animal.setUbicacion(nuevaUbicacion);
+        animal.setObservaciones(observaciones);
+        animalService.guardar(animal);
+        return "redirect:/animales";
     }
 
 }
