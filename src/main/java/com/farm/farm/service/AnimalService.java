@@ -9,7 +9,7 @@ import com.farm.farm.repository.AnimalRepository;
 
 @Service
 public class AnimalService {
-
+    // Centralizar la lógica de negocio
     private final AnimalRepository animalRepository;
 
     public AnimalService(AnimalRepository animalRepository) {
