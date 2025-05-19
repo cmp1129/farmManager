@@ -38,3 +38,30 @@ VALUES
 ('Rocky', '🐕', 'Perro', 6, 40, '2018-07-15', 'MACHO', 'Pastor Alemán', 'Herido', '2024-05-02', 'Pienso', 'Tiene una cicatriz', FALSE, 'CORRAL'),
 ('Estrella', '🐄', 'Vaca', 5, 460, '2019-11-10', 'HEMBRA', 'Highland', 'Sano', '2024-04-11', 'Heno', 'Muy dócil', TRUE, 'ESTABLO'),
 ('Nube', '🐎', 'Caballo', 8, 495, '2016-05-19', 'HEMBRA', 'Percherón', 'Sano', '2024-03-12', 'Avena', 'Muy fuerte', FALSE, 'PASTO');
+
+CREATE TABLE cultivo (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    temporada VARCHAR(50),
+    superficie_hectareas DOUBLE,
+    tipo_cultivo VARCHAR(50),
+
+    -- Solo para CultivoAgricola
+    tipo_suelo VARCHAR(255),
+    fertilizante_recomendado VARCHAR(255),
+
+    -- Solo para PlantaMedicinal
+    propiedades_medicinales VARCHAR(255),
+    forma_recoleccion VARCHAR(255)
+);
+-- Insert cultivo agricola
+INSERT INTO cultivo (nombre, temporada, superficie_hectareas, tipo_cultivo, tipo_suelo, fertilizante_recomendado)
+VALUES
+('Trigo', 'Primavera', 2.5, 'CultivoAgricola', 'Franco', 'Abono mineral'),
+('Cebada', 'Otoño', 1.8, 'CultivoAgricola', 'Arenoso', 'Compost orgánico');
+
+-- Insert planta medicinal
+INSERT INTO cultivo (nombre, temporada, superficie_hectareas, tipo_cultivo, propiedades_medicinales, forma_recoleccion)
+VALUES
+('Manzanilla', 'Primavera', 0.5, 'PlantaMedicinal', 'Calmante, digestiva', 'Recolección matutina'),
+('Lavanda', 'Primavera', 0.7, 'PlantaMedicinal', 'Relajante, antiséptica', 'Secado natural');

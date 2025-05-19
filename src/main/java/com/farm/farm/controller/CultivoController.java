@@ -2,19 +2,20 @@ package com.farm.farm.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.farm.farm.model.Cultivo;
 import com.farm.farm.model.CultivoAgricola;
 import com.farm.farm.model.PlantaMedicinal;
 import com.farm.farm.service.CultivoService;
 
-@Controller
-@RequestMapping("/cultivos")
+@Controller("/cultivos")
 public class CultivoController {
 
     private final CultivoService cultivoService;
