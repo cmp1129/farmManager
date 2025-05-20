@@ -25,7 +25,7 @@ public class CultivoController {
     }
 
     // Listar todos los cultivos
-    @GetMapping("/cultivos")
+    @GetMapping("/cultivos/listado")
     public String listarTodos(Model model) {
         List<Cultivo> cultivos = cultivoService.listarTodos();
         model.addAttribute("cultivos", cultivos);
