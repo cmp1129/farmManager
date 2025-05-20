@@ -31,4 +31,9 @@ public class HomeController {
         return "homeEconomia";
     }
 
+    @GetMapping("/empleados")
+    public String homeEmpleados() {
+        return "homeEmpleados";
+    }
+
 }
