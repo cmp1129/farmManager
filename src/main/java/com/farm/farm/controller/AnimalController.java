@@ -21,7 +21,7 @@ public class AnimalController {
         this.animalService = animalService;
     }
 
-    @GetMapping("/animales")
+    @GetMapping("/animales/listado")
     public String verAnimales(Model model) {
         List<Animal> lista = animalService.listarTodos();
         List<String> ubicaciones = animalService.listarUbicaciones();

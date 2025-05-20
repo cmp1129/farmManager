@@ -10,4 +10,10 @@ public class HomeController {
     public String redirectToHomePage() {
         return "homePage";
     }
+
+    @GetMapping("/animales")
+    public String homeAnimales() {
+        return "homeAnimales";
+    }
+
 }

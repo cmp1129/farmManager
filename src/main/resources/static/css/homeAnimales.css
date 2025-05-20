@@ -1,0 +1,72 @@
+body {
+  background-image: url("/images/homeAnimales.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Arial", sans-serif;
+  background-color: #f9f7f3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #65451f;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #5e503f;
+}
+
+.menu-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.menu-item {
+  display: block;
+  background-color: #f2e8cf;
+  color: #3e2723;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #e4d7b5;
+  transform: translateY(-2px);
+}
+
+.volver-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #65451f;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.volver-btn:hover {
+  color: #3e2723;
+}

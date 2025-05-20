@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestión de Animales</title>
+    <link rel="stylesheet" th:href="@{/css/homeAnimales.css}" />
+    <link rel="icon" type="image/png" th:href="@{/images/vaca.png}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🐄 Gestión de Animales</h1>
+      <p class="intro">¿Cómo quieres gestionar hoy a tus animales?</p>
+
+      <div class="menu-opciones">
+        <a href="/animales/listado" class="menu-item">
+          📋 Listado de mis Animales
+        </a>
+        <a href="/animales/nuevo" class="menu-item">
+          ➕ Añadir un Nuevo Animal
+        </a>
+        <a href="/animales/salud" class="menu-item">
+          🩺 Revisar Estado de Salud
+        </a>
+        <a href="/animales/embarazos" class="menu-item">
+          🐮 Animales Embarazados
+        </a>
+      </div>
+
+      <a href="/" class="volver-btn">← Volver a la página principal</a>
+    </div>
+  </body>
+</html>
