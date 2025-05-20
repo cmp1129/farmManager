@@ -30,13 +30,6 @@ public class AnimalController {
         return "plantillaAnimales";
     }
 
-    @GetMapping("/animales/especie/{especie}")
-    public String verAnimalesPorEspecie(@PathVariable String especie, Model model) {
-        List<Animal> lista = animalService.buscarPorEspecie(especie);
-        model.addAttribute("listaAnimales", lista);
-        return "plantillaAnimales";
-    }
-
     @PostMapping("/animales/actualizar/{id}")
     public String actualizarAnimal(@PathVariable Long id,
             @RequestParam String ubicacion,
@@ -52,5 +45,13 @@ public class AnimalController {
         animalService.guardar(animal);
         return "redirect:/animales";
     }
+
+    // @GetMapping("/animales/especie/{especie}")
+    // public String verAnimalesPorEspecie(@PathVariable String especie, Model
+    // model) {
+    // List<Animal> lista = animalService.buscarPorEspecie(especie);
+    // model.addAttribute("listaAnimales", lista);
+    // return "plantillaAnimales";
+    // }
 
 }

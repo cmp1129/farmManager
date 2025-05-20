@@ -15,7 +15,7 @@ import com.farm.farm.model.CultivoAgricola;
 import com.farm.farm.model.PlantaMedicinal;
 import com.farm.farm.service.CultivoService;
 
-@Controller("/cultivos")
+@Controller
 public class CultivoController {
 
     private final CultivoService cultivoService;
@@ -25,7 +25,7 @@ public class CultivoController {
     }
 
     // Listar todos los cultivos
-    @GetMapping
+    @GetMapping("/cultivos")
     public String listarTodos(Model model) {
         List<Cultivo> cultivos = cultivoService.listarTodos();
         model.addAttribute("cultivos", cultivos);
