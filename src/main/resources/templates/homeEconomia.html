@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestión de Economía</title>
+    <link rel="stylesheet" th:href="@{/css/homeAnimales.css}" />
+    <link rel="icon" type="image/png" th:href="@{/images/icons/cultivo.png}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>💰 Gestión de Economía</h1>
+      <p class="intro">¿Cómo quieres gestionar hoy tu Economía?</p>
+
+      <div class="menu-opciones">
+        <a href="/economia/listado" class="menu-item"> 📋 Listado General</a>
+        <a href="/economia/ganancias/nueva" class="menu-item"
+          >➕ Registrar Ingreso</a
+        >
+        <a href="/economia/perdidas/nueva" class="menu-item"
+          >➖ Registrar Gasto</a
+        >
+        <a href="/economia/reportes" class="menu-item">📊 Ver Reportes</a>
+        <a href="/economia/exportar" class="menu-item">⬇️ Exportar Datos</a>
+        <a href="/economia/categorias" class="menu-item"
+          >⚙️ Configurar Categorías</a
+        >
+      </div>
+
+      <a href="/" class="volver-btn">← Volver a la página principal</a>
+    </div>
+  </body>
+</html>

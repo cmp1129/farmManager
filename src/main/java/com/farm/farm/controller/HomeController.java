@@ -26,4 +26,9 @@ public class HomeController {
         return "homeMaquinaria";
     }
 
+    @GetMapping("/economia")
+    public String homeEconomia() {
+        return "homeEconomia";
+    }
+
 }
