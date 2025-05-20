@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gestión de Maquinaria</title>
+    <link rel="stylesheet" th:href="@{/css/homeAnimales.css}" />
+    <link rel="icon" type="image/png" th:href="@{/images/icons/tractor.png}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚜 Gestión de Maquinaria</h1>
+      <p class="intro">¿Cómo quieres gestionar hoy tu maquinaria?</p>
+
+      <div class="menu-opciones">
+        <a href="/maquinaria/listado" class="menu-item">
+          📋 Listado de mis Maquinarias
+        </a>
+        <a href="/maquinaria/nuevo" class="menu-item">
+          ➕ Añadir una Nueva Maquinaria
+        </a>
+        <a href="/maquinaria/estado" class="menu-item">
+          🩺 Revisar Estado de la Maquinaria
+        </a>
+      </div>
+
+      <a href="/" class="volver-btn">← Volver a la página principal</a>
+    </div>
+  </body>
+</html>

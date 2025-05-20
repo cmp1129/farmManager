@@ -16,4 +16,14 @@ public class HomeController {
         return "homeAnimales";
     }
 
+    @GetMapping("/cultivos")
+    public String homeCultivos() {
+        return "homeCultivos";
+    }
+
+    @GetMapping("/maquinaria")
+    public String homeMaquinaria() {
+        return "homeMaquinaria";
+    }
+
 }
