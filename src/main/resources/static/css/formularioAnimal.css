@@ -1,0 +1,85 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #fcf8f3;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(170, 140, 105, 0.15);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #5a3e2b;
+}
+
+.animal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.animal-form label {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #5a3e2b;
+}
+
+.animal-form input,
+.animal-form select,
+.animal-form textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #d2b48c;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.animal-form input[type="checkbox"] {
+  width: auto;
+  margin-top: 10px;
+}
+
+.animal-form textarea {
+  resize: vertical;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+button {
+  background-color: #8f6c4f;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #a77956;
+}
+
+.cancelar-btn {
+  background-color: #c9c1b8;
+  color: #333;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+}
+
+.cancelar-btn:hover {
+  background-color: #ddd7ce;
+}

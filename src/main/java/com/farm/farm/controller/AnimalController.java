@@ -63,4 +63,16 @@ public class AnimalController {
         return "redirect:/animales/listado";
     }
 
+    @GetMapping("/animales/nuevo")
+    public String animalesNuevo(Model model) {
+        model.addAttribute("animal", new Animal());
+        return "formularioAnimal";
+    }
+
+    @PostMapping("/animales/guardar")
+    public String guardarAnimal(Animal animal) {
+        animalService.guardar(animal);
+        return "redirect:/animales/listado";
+    }
+
 }
