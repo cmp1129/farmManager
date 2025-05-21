@@ -28,7 +28,7 @@ public class AnimalController {
         List<String> ubicaciones = animalService.listarUbicaciones();
         model.addAttribute("listaAnimales", lista);
         model.addAttribute("ubicaciones", ubicaciones);
-        return "plantillaAnimales";
+        return "animales/plantillaAnimales"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
 
     @PostMapping("/animales/actualizar/{id}")
@@ -54,7 +54,7 @@ public class AnimalController {
         List<String> ubicaciones = animalService.listarUbicaciones();
         model.addAttribute("listaAnimales", lista);
         model.addAttribute("ubicaciones", ubicaciones);
-        return "plantillaAnimales";
+        return "animales/plantillaAnimales"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
 
     @PostMapping("/animales/eliminar/{id}")
