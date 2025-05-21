@@ -9,10 +9,14 @@ import com.farm.farm.model.Animal;
 
 public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
-    // Método que filtra por especie de animal
+    // Filtra por especie de animal
     List<Animal> findByEspecie(String especie);
 
+    // Selecciona todos los valores sin repetir de la columna ubicacion
     @Query("SELECT DISTINCT a.ubicacion FROM Animal a")
     List<String> findDistinctUbicaciones();
+
+    // Filtra por sexo de animal
+    List<Animal> findBySexo(String sexo);
 
 }

@@ -57,9 +57,24 @@ public class AnimalController {
         return "animales/plantillaAnimales"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
 
+    @GetMapping("/animales/sexo/{sexo}")
+    public String verAnimalesPorSexo(@PathVariable String sexo, Model model) {
+        List<Animal> lista = animalService.buscarPorSexo(sexo);
+        List<String> ubicaciones = animalService.listarUbicaciones();
+        model.addAttribute("listaAnimales", lista);
+        model.addAttribute("ubicaciones", ubicaciones);
+        return "animales/plantillaAnimales"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
+    }
+
     @PostMapping("/animales/eliminar/{id}")
     public String eliminarAnimal(@PathVariable Long id) {
         animalService.eliminar(id);
+        return "redirect:/animales/listado";
+    }
+
+    @PostMapping("/animales/guardar")
+    public String guardarAnimal(Animal animal) {
+        animalService.guardar(animal);
         return "redirect:/animales/listado";
     }
 
@@ -69,10 +84,22 @@ public class AnimalController {
         return "animales/formularioAnimal"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
 
-    @PostMapping("/animales/guardar")
-    public String guardarAnimal(Animal animal) {
-        animalService.guardar(animal);
-        return "redirect:/animales/listado";
+    @GetMapping("/animales/estadisticas")
+    public String animalesEstadisticas(Model model) {
+        model.addAttribute("animal", new Animal());
+        return "animales/chartsAnimals"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
+
+    // @GetMapping("/animales/estadisticas")
+    // public String verEstadisticas(Model model) {
+    // model.addAttribute("totalAnimales", animalService.contarAnimales());
+    // model.addAttribute("animalesEmbarazados", animalService.contarEmbarazados());
+    // model.addAttribute("animalesHeridos", animalService.contarHeridos());
+    // model.addAttribute("mediaPeso", animalService.calcularMediaPeso());
+    // model.addAttribute("resumenAnimales",
+    // animalService.obtenerResumenAnimales());
+
+    // return "animales/chartsAnimals";
+    // }
 
 }

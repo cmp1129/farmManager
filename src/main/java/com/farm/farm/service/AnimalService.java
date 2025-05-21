@@ -41,6 +41,10 @@ public class AnimalService {
         return animalRepository.findByEspecie(especie);
     }
 
+    public List<Animal> buscarPorSexo(String sexo) {
+        return animalRepository.findBySexo(sexo);
+    }
+
     public List<String> listarUbicaciones() {
         return animalRepository.findDistinctUbicaciones();
     }

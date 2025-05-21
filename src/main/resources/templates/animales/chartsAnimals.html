@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head>
+  <meta charset="UTF-8" />
+  <title>📈 Estadísticas del Ganado</title>
+  <link rel="stylesheet" th:href="@{/css/animales/chartsAnimals.css}" />
+    <link rel="icon" type="image/png" th:href="@{/images/icons/vaca.png}" />
+</head>
+<body>
+    <div class="volver-container">
+      <a th:href="@{/animales}" class="volver-btn">← Volver a la gestión</a>
+    </div>
+
+    <h1>📈 Estadísticas del Ganado</h1>
+
+    <div class="stats-container">
+      <div class="stats-card">
+        <h3>Total de Animales</h3>
+        <p th:text="${totalAnimales}">--</p>
+      </div>
+      <div class="stats-card">
+        <h3>Animales Embarazados</h3>
+        <p th:text="${animalesEmbarazados}">--</p>
+      </div>
+      <div class="stats-card">
+        <h3>Animales Heridos</h3>
+        <p th:text="${animalesHeridos}">--</p>
+      </div>
+      <div class="stats-card">
+        <h3>Media de Peso</h3>
+        <p th:text="${mediaPeso} + ' kg'">-- kg</p>
+      </div>
+    </div>
+
+    <h2>📊 Gráficas (Próximamente)</h2>
+    <div class="chart-placeholder">[ Gráfica de Animales por Especie ]</div>
+    <div class="chart-placeholder">[ Gráfica de Estado de Salud ]</div>
+    <div class="chart-placeholder">[ Gráfica de Ubicación ]</div>
+
+    <h2>📥 Descargar Datos</h2>
+    <a th:href="@{/animales/exportar/json}" class="download-btn">Descargar JSON</a>
+    <a th:href="@{/animales/exportar/csv}" class="download-btn">Descargar CSV</a>
+
+    <h2>📃 Resumen de Datos</h2>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Especie</th>
+          <th>Peso (kg)</th>
+          <th>Estado Salud</th>
+          <th>Tipo de Alimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="animal : ${resumenAnimales}">
+          <td th:text="${animal.nombre}">Nombre</td>
+          <td th:text="${animal.especie}">Especie</td>
+          <td th:text="${animal.peso}">0</td>
+          <td th:text="${animal.estadoSalud}">Salud</td>
+          <td th:text="${animal.tipoAlimento}">Alimento</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
