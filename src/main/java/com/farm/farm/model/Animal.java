@@ -33,7 +33,7 @@ public class Animal {
     private String nombre;
     private String especie;
     private int edad;
-    private int peso;
+    private double peso;
     private LocalDate fechaNacimiento;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
@@ -104,11 +104,11 @@ public class Animal {
         this.edad = edad;
     }
 
-    public int getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(int peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 

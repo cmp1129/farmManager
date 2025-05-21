@@ -7,8 +7,15 @@
     <link rel="icon" type="image/png" th:href="@{/images/icons/vaca.png}" />
   </head>
   <body>
-    <h1>Tus Animales</h1>
-    <table border="1">
+    <!-- <h1>Tus Animales</h1> -->
+    <!-- Botón de volver -->
+    <div class="volver-container">
+      <a th:href="@{/animales}" class="volver-btn"
+        >← Volver a la gestión de animales</a
+      >
+    </div>
+
+    <table border="2">
       <thead>
         <tr>
           <th>Nombre</th>
@@ -21,6 +28,8 @@
           <th>Salud</th>
           <th>Embarazada</th>
           <th>Observaciones</th>
+          <th>Guardar</th>
+          <th>Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -77,8 +86,18 @@
                 th:text="${animal.observaciones}"
               ></textarea>
             </td>
+            <!-- Botón guardar -->
             <td><button type="submit">💾</button></td>
           </form>
+          <!-- Botón eliminar -->
+          <td>
+            <form
+              th:action="@{/animales/eliminar/{id}(id=${animal.id})}"
+              method="post"
+            >
+              <button type="submit" class="eliminar-btn">🗑️</button>
+            </form>
+          </td>
         </tr>
       </tbody>
     </table>

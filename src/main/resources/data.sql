@@ -4,7 +4,7 @@ CREATE TABLE animal (
     emoji VARCHAR(5),
     especie VARCHAR(255) NOT NULL,
     edad INT NOT NULL,
-    peso INT NOT NULL,
+    peso DOUBLE NOT NULL,
     fecha_nacimiento DATE,
     sexo VARCHAR(20),
     raza VARCHAR(100),

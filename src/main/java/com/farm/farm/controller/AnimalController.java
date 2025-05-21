@@ -34,25 +34,33 @@ public class AnimalController {
     @PostMapping("/animales/actualizar/{id}")
     public String actualizarAnimal(@PathVariable Long id,
             @RequestParam String ubicacion,
-            @RequestParam String observaciones) {
+            @RequestParam String observaciones,
+            @RequestParam double peso,
+            @RequestParam int edad) {
         Animal animal = animalService.findById(id);
-
         // Convertir String a enum Ubicacion
         Animal.Ubicacion nuevaUbicacion = Animal.Ubicacion.valueOf(ubicacion.toUpperCase());
-        System.out.println(ubicacion);
-
         animal.setUbicacion(nuevaUbicacion);
         animal.setObservaciones(observaciones);
+        animal.setPeso(peso);
+        animal.setEdad(edad);
         animalService.guardar(animal);
-        return "redirect:/animales";
+        return "redirect:/animales/listado";
     }
 
-    // @GetMapping("/animales/especie/{especie}")
-    // public String verAnimalesPorEspecie(@PathVariable String especie, Model
-    // model) {
-    // List<Animal> lista = animalService.buscarPorEspecie(especie);
-    // model.addAttribute("listaAnimales", lista);
-    // return "plantillaAnimales";
-    // }
+    @GetMapping("/animales/especie/{especie}")
+    public String verAnimalesPorEspecie(@PathVariable String especie, Model model) {
+        List<Animal> lista = animalService.buscarPorEspecie(especie);
+        List<String> ubicaciones = animalService.listarUbicaciones();
+        model.addAttribute("listaAnimales", lista);
+        model.addAttribute("ubicaciones", ubicaciones);
+        return "plantillaAnimales";
+    }
+
+    @PostMapping("/animales/eliminar/{id}")
+    public String eliminarAnimal(@PathVariable Long id) {
+        animalService.eliminar(id);
+        return "redirect:/animales/listado";
+    }
 
 }

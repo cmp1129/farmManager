@@ -33,6 +33,10 @@ public class AnimalService {
         animalRepository.save(animal);
     }
 
+    public void eliminar(Long id) {
+        animalRepository.deleteById(id);
+    }
+
     public List<Animal> buscarPorEspecie(String especie) {
         return animalRepository.findByEspecie(especie);
     }
