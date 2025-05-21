@@ -66,7 +66,7 @@ public class AnimalController {
     @GetMapping("/animales/nuevo")
     public String animalesNuevo(Model model) {
         model.addAttribute("animal", new Animal());
-        return "formularioAnimal";
+        return "animales/formularioAnimal"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
 
     @PostMapping("/animales/guardar")
