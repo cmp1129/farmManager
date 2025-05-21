@@ -33,8 +33,28 @@
             <!-- <td th:text="${animal.id}"></td> -->
             <td th:text="${animal.nombre}"></td>
             <td th:text="${animal.especie}"></td>
-            <td th:text="${animal.edad}"></td>
-            <td th:text="${animal.peso} + ' kg'"></td>
+            <!-- Edad editable -->
+            <td>
+              <input
+                type="number"
+                name="edad"
+                min="0"
+                th:value="${animal.edad}"
+                style="width: 60px"
+              />
+            </td>
+            <!-- Peso editable -->
+            <td>
+              <input
+                type="number"
+                name="peso"
+                min="0"
+                step="0.1"
+                th:value="${animal.peso}"
+                style="width: 70px"
+              />
+              kg
+            </td>
             <td th:text="${animal.sexo}"></td>
             <td th:text="${animal.raza}"></td>
             <td>
