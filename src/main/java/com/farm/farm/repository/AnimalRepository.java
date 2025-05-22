@@ -19,4 +19,19 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
     // Filtra por sexo de animal
     List<Animal> findBySexo(String sexo);
 
+    @Query("SELECT COUNT(a) FROM Animal a")
+    long contarAnimales();
+
+    @Query("SELECT COUNT(a) FROM Animal a WHERE a.estadoSalud = 'Sano'")
+    long contarSanos();
+
+    @Query("SELECT COUNT(a) FROM Animal a WHERE a.estadoSalud = 'Herido'")
+    long contarHeridos();
+
+    @Query("SELECT AVG(a.peso) FROM Animal a")
+    double calcularMediaPeso();
+
+    @Query("SELECT COUNT(a) FROM Animal a WHERE a.embarazada = true")
+    long contarEmbarazadas();
+
 }
