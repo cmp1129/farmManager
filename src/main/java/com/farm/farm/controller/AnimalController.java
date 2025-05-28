@@ -110,15 +110,6 @@ public class AnimalController {
     }
 
     // EXPORTACIONES DE LOS DATOS DE ANIMALES
-    @GetMapping("/json")
-    public ResponseEntity<byte[]> exportAnimalsToJSON() throws IOException {
-        byte[] data = animalService.exportToJSON();
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=animales.json")
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(data);
-    }
-
     @GetMapping("/csv")
     public ResponseEntity<String> exportAnimalsToCSV() {
         String csv = animalService.exportToCSV();

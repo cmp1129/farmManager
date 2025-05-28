@@ -92,12 +92,8 @@ public class AnimalService {
                 .collect(Collectors.groupingBy(Animal::getEstadoSalud, Collectors.counting()));
     }
 
-    public byte[] exportToJSON() throws IOException {
-        List<Animal> animals = animalRepository.findAll();
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsBytes(animals);
-    }
 
+    // EXPORTACIONES DE DATOS
     public String exportToCSV() {
         List<Animal> animals = animalRepository.findAll();
         StringBuilder builder = new StringBuilder();
