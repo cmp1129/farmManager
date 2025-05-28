@@ -1,6 +1,9 @@
 package com.farm.farm.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -67,6 +70,12 @@ public class AnimalService {
     // Calcular media de peso
     public double calcularMediaPeso() {
         return animalRepository.calcularMediaPeso();
+    }
+
+    public Map<String, Long> contarAnimalesPorEspecie() {
+        List<Animal> animales = animalRepository.findAll();
+        return animales.stream()
+                .collect(Collectors.groupingBy(Animal::getEspecie, Collectors.counting()));
     }
 
 }

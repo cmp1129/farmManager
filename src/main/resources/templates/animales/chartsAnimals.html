@@ -4,15 +4,19 @@
   <meta charset="UTF-8" />
   <title>📈 Estadísticas del Ganado</title>
   <link rel="stylesheet" th:href="@{/css/animales/chartsAnimals.css}" />
-    <link rel="icon" type="image/png" th:href="@{/images/icons/vaca.png}" />
+  <link rel="icon" type="image/png" th:href="@{/images/icons/vaca.png}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="volver-container">
       <a th:href="@{/animales}" class="volver-btn">← Volver a la gestión</a>
     </div>
 
-    <h1>📈 Estadísticas del Ganado</h1>
+    <h2>📥 Descargar Datos</h2>
+    <a th:href="@{/animales/exportar/json}" class="download-btn">Descargar JSON</a>
+    <a th:href="@{/animales/exportar/csv}" class="download-btn">Descargar CSV</a>
 
+    <h1>📈 Estadísticas del Ganado</h1>
     <div class="stats-container">
       <div class="stats-card">
         <h3>Total de Animales</h3>
@@ -32,14 +36,44 @@
       </div>
     </div>
 
-    <h2>📊 Gráficas (Próximamente)</h2>
-    <div class="chart-placeholder">[ Gráfica de Animales por Especie ]</div>
-    <div class="chart-placeholder">[ Gráfica de Estado de Salud ]</div>
-    <div class="chart-placeholder">[ Gráfica de Ubicación ]</div>
+    <h2>📊 Gráficas</h2>
+    <h2>1. Animales por Especie</h2>
+<canvas id="especieChart"></canvas>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const especies = /*[[${animalesPorEspecie.keySet()}]]*/ [];
+    const cantidades = /*[[${animalesPorEspecie.values()}]]*/ [];
 
-    <h2>📥 Descargar Datos</h2>
-    <a th:href="@{/animales/exportar/json}" class="download-btn">Descargar JSON</a>
-    <a th:href="@{/animales/exportar/csv}" class="download-btn">Descargar CSV</a>
+    const ctx = document.getElementById('especieChart').getContext('2d');
+    const especieChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: especies,
+            datasets: [{
+                label: 'Cantidad de Animales',
+                data: cantidades,
+                backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    /*]]>*/
+</script>
+
+    <!-- <div class="chart-placeholder">[ Gráfica de Animales por Especie ]</div>
+    <div class="chart-placeholder">[ Gráfica de Estado de Salud ]</div>
+    <div class="chart-placeholder">[ Gráfica de Ubicación ]</div> -->
+
+    
 
   </body>
 </html>
