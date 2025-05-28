@@ -102,7 +102,9 @@ public class AnimalController {
         model.addAttribute("totalAnimales", animalService.contarAnimales());
         model.addAttribute("animalesEmbarazados", animalService.contarEmbarazadas());
         model.addAttribute("animalesHeridos", animalService.contarHeridos());
+        model.addAttribute("animalesSanos", animalService.contarSanos());
         model.addAttribute("mediaPeso", animalService.calcularMediaPeso());
+        model.addAttribute("ubicacionMasComun", animalService.calcularUbicacionMasComun());
         model.addAttribute("animalesPorEspecie", animalService.contarAnimalesPorEspecie());
         model.addAttribute("animalesPorEstadoSalud", animalService.contarAnimalesPorEstadoSalud());
 

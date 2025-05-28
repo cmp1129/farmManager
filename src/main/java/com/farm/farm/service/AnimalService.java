@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import com.farm.farm.model.Animal;
 import com.farm.farm.repository.AnimalRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class AnimalService {
@@ -74,9 +73,26 @@ public class AnimalService {
         return animalRepository.contarHeridos();
     }
 
+    // Contar sanos
+    public long contarSanos() {
+        return animalRepository.contarSanos();
+    }
+
     // Calcular media de peso
     public double calcularMediaPeso() {
         return animalRepository.calcularMediaPeso();
+    }
+
+    // Calcular ubicacion mas comun
+    public String calcularUbicacionMasComun() {
+        List<String> ubicaciones = animalRepository.findDistinctUbicaciones();
+        Map<String, Long> conteo = ubicaciones.stream()
+                .collect(Collectors.groupingBy(ubicacion -> ubicacion, Collectors.counting()));
+
+        return conteo.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .orElse("No hay ubicaciones");
     }
 
     // Contar animales por especie
@@ -91,7 +107,6 @@ public class AnimalService {
         return animalRepository.findAll().stream()
                 .collect(Collectors.groupingBy(Animal::getEstadoSalud, Collectors.counting()));
     }
-
 
     // EXPORTACIONES DE DATOS
     public String exportToCSV() {
