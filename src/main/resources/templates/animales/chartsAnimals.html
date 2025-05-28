@@ -9,106 +9,120 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <div class="volver-container">
-      <a th:href="@{/animales}" class="volver-btn">← Volver a la gestión</a>
-    </div>
-
-    <h2>📥 Descargar Datos</h2>
-    <a th:href="@{/animales/exportar/json}" class="download-btn"
-      >Descargar JSON</a
-    >
-    <a th:href="@{/animales/exportar/csv}" class="download-btn"
-      >Descargar CSV</a
-    >
-
-    <h1>📈 Estadísticas del Ganado</h1>
-    <div class="stats-container">
-      <div class="stats-card">
-        <h3>Total de Animales</h3>
-        <p th:text="${totalAnimales}">--</p>
+    <div class="page-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <a th:href="@{/animales}" class="volver-btn">← Volver a la gestión</a>
+        <a th:href="@{/animales/exportar/json}" class="download-btn"
+          >Descargar JSON</a
+        >
+        <a th:href="@{/animales/exportar/csv}" class="download-btn"
+          >Descargar CSV</a
+        >
+        <!-- <a th:href="@{/dashboard}" class="action-btn">📊 Ir al Dashboard</a> -->
+        <a th:href="@{/animales/nuevo}" class="action-btn">➕ Añadir Animal</a>
+        <a th:href="@{/animales/listado}" class="action-btn">📋 Ver Listado</a>
       </div>
-      <div class="stats-card">
-        <h3>Animales Embarazados</h3>
-        <p th:text="${animalesEmbarazados}">--</p>
-      </div>
-      <div class="stats-card">
-        <h3>Animales Heridos</h3>
-        <p th:text="${animalesHeridos}">--</p>
-      </div>
-      <div class="stats-card">
-        <h3>Media de Peso</h3>
-        <p th:text="${mediaPeso} + ' kg'">-- kg</p>
-      </div>
-    </div>
 
-    <h2>📊 Gráficas</h2>
-    <h2>1. Animales por Especie</h2>
-    <canvas id="especieChart"></canvas>
-    <script th:inline="javascript">
-      /*<![CDATA[*/
-      const especies = /*[[${animalesPorEspecie.keySet()}]]*/ [];
-      const cantidades = /*[[${animalesPorEspecie.values()}]]*/ [];
+      <!-- Contenido principal -->
+      <div class="main-content">
+        <h1>📈 Estadísticas del Ganado</h1>
+        <div class="stats-container">
+          <div class="stats-card">
+            <h3>Total de Animales</h3>
+            <p th:text="${totalAnimales}">--</p>
+          </div>
+          <div class="stats-card">
+            <h3>Animales Embarazados</h3>
+            <p th:text="${animalesEmbarazados}">--</p>
+          </div>
+          <div class="stats-card">
+            <h3>Animales Heridos</h3>
+            <p th:text="${animalesHeridos}">--</p>
+          </div>
+          <div class="stats-card">
+            <h3>Peso Medio</h3>
+            <p th:text="${mediaPeso} + ' kg'">-- kg</p>
+          </div>
+        </div>
 
-      const ctx = document.getElementById("especieChart").getContext("2d");
-      const especieChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: especies,
-          datasets: [
-            {
-              label: "Cantidad de Animales",
-              data: cantidades,
-              backgroundColor: "rgba(75, 192, 192, 0.6)",
-              borderColor: "rgba(75, 192, 192, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
-      /*]]>*/
-    </script>
+        <h2>📊 Animales por Especie</h2>
+        <canvas id="especieChart"></canvas>
 
-    <h2>2. Animales por Estado de Salud</h2>
-    <canvas id="estadoSaludChart"></canvas>
-    <script th:inline="javascript">
-      /*<![CDATA[*/
-      const estadosSalud = /*[[${animalesPorEstadoSalud.keySet()}]]*/ [];
-      const cantidadesSalud = /*[[${animalesPorEstadoSalud.values()}]]*/ [];
+        <h2>📊 Animales por Estado de Salud</h2>
+        <canvas id="estadoSaludChart"></canvas>
 
-      const ctxSalud = document
-        .getElementById("estadoSaludChart")
-        .getContext("2d");
-      const estadoSaludChart = new Chart(ctxSalud, {
-        type: "doughnut",
-        data: {
-          labels: estadosSalud,
-          datasets: [
-            {
-              label: "Cantidad de Animales",
-              data: cantidadesSalud,
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.6)",
-                "rgba(255, 206, 86, 0.6)",
-                "rgba(75, 192, 192, 0.6)",
+        <script th:inline="javascript">
+          /*<![CDATA[*/
+          const especies = /*[[${animalesPorEspecie.keySet()}]]*/ [];
+          const cantidades = /*[[${animalesPorEspecie.values()}]]*/ [];
+
+          const ctx = document.getElementById("especieChart").getContext("2d");
+          const especieChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: especies,
+              datasets: [
+                {
+                  label: "Cantidad de Animales",
+                  data: cantidades,
+                  backgroundColor: "rgba(75, 192, 192, 0.7)",
+                  borderColor: "rgba(75, 192, 192, 1)",
+                  borderWidth: 1,
+                },
               ],
-              borderColor: "rgba(255, 255, 255, 1)",
-              borderWidth: 1,
             },
-          ],
-        },
-        options: {
-          responsive: true,
-        },
-      });
-      /*]]>*/
-    </script>
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: { stepSize: 1 },
+                },
+              },
+              plugins: {
+                legend: { display: false },
+              },
+            },
+          });
+
+          const estadosSalud = /*[[${animalesPorEstadoSalud.keySet()}]]*/ [];
+          const cantidadesSalud = /*[[${animalesPorEstadoSalud.values()}]]*/ [];
+
+          const ctxSalud = document
+            .getElementById("estadoSaludChart")
+            .getContext("2d");
+          const estadoSaludChart = new Chart(ctxSalud, {
+            type: "doughnut",
+            data: {
+              labels: estadosSalud,
+              datasets: [
+                {
+                  data: cantidadesSalud,
+                  backgroundColor: [
+                    "rgba(255, 99, 132, 0.6)",
+                    "rgba(255, 206, 86, 0.6)",
+                    "rgba(75, 192, 192, 0.6)",
+                  ],
+                  borderColor: "rgba(255, 255, 255, 1)",
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: "bottom",
+                },
+              },
+            },
+          });
+          /*]]>*/
+        </script>
+      </div>
+    </div>
   </body>
 </html>

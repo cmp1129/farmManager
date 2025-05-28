@@ -1,49 +1,121 @@
-.stats-card {
-  border: 1px solid #ddd;
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
   padding: 1rem;
-  border-radius: 8px;
-  margin: 0.5rem;
-  background-color: #f9f9f9;
-  text-align: center;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Layout general en dos columnas */
+.page-container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Caja lateral de botones */
+.sidebar {
+  width: 200px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Contenido principal centrado */
+.main-content {
   flex: 1;
 }
-.stats-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+
+/* Botones de descarga */
 .download-btn {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
+  padding: 0.4rem 0.8rem;
   background-color: #4caf50;
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  text-align: center;
+  font-size: 0.9rem;
 }
-.chart-placeholder {
-  height: 300px;
-  border: 1px dashed #ccc;
+
+.download-btn:hover {
+  background-color: #45a049;
+}
+
+/* Stats cards */
+.stats-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin: 1rem 0;
 }
 
-volver-container {
+.stats-card {
+  flex: 1 1 calc(25% - 0.5rem);
+  min-width: 160px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   text-align: center;
-  margin: 20px 0;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
+/* Volver botón */
 .volver-btn {
   color: #65451f;
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  background-color: #e0e0e0;
+  display: block;
+  text-align: center;
 }
 
 .volver-btn:hover {
-  color: #3e2723;
+  background-color: #d6d6d6;
+}
+
+/* Gráficas */
+canvas {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  max-height: 400px;
+  margin: 1rem 0;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+  margin: 0.5rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .download-btn {
+    flex: 1;
+  }
 }
