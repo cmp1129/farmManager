@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"></html>
-<head>
-  <meta charset="UTF-8" />
-  <title>📈 Estadísticas del Ganado</title>
-  <link rel="stylesheet" th:href="@{/css/animales/chartsAnimals.css}" />
-  <link rel="icon" type="image/png" th:href="@{/images/icons/vaca.png}" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📈 Estadísticas del Ganado</title>
+    <link rel="stylesheet" th:href="@{/css/animales/chartsAnimals.css}" />
+    <link rel="icon" type="image/png" th:href="@{/images/icons/vaca.png}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
     <div class="volver-container">
       <a th:href="@{/animales}" class="volver-btn">← Volver a la gestión</a>
     </div>
 
     <h2>📥 Descargar Datos</h2>
-    <a th:href="@{/animales/exportar/json}" class="download-btn">Descargar JSON</a>
-    <a th:href="@{/animales/exportar/csv}" class="download-btn">Descargar CSV</a>
+    <a th:href="@{/animales/exportar/json}" class="download-btn"
+      >Descargar JSON</a
+    >
+    <a th:href="@{/animales/exportar/csv}" class="download-btn"
+      >Descargar CSV</a
+    >
 
     <h1>📈 Estadísticas del Ganado</h1>
     <div class="stats-container">
@@ -38,42 +43,72 @@
 
     <h2>📊 Gráficas</h2>
     <h2>1. Animales por Especie</h2>
-<canvas id="especieChart"></canvas>
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    const especies = /*[[${animalesPorEspecie.keySet()}]]*/ [];
-    const cantidades = /*[[${animalesPorEspecie.values()}]]*/ [];
+    <canvas id="especieChart"></canvas>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      const especies = /*[[${animalesPorEspecie.keySet()}]]*/ [];
+      const cantidades = /*[[${animalesPorEspecie.values()}]]*/ [];
 
-    const ctx = document.getElementById('especieChart').getContext('2d');
-    const especieChart = new Chart(ctx, {
-        type: 'bar',
+      const ctx = document.getElementById("especieChart").getContext("2d");
+      const especieChart = new Chart(ctx, {
+        type: "bar",
         data: {
-            labels: especies,
-            datasets: [{
-                label: 'Cantidad de Animales',
-                data: cantidades,
-                backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
+          labels: especies,
+          datasets: [
+            {
+              label: "Cantidad de Animales",
+              data: cantidades,
+              backgroundColor: "rgba(75, 192, 192, 0.6)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    /*]]>*/
-</script>
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      /*]]>*/
+    </script>
 
-    <!-- <div class="chart-placeholder">[ Gráfica de Animales por Especie ]</div>
-    <div class="chart-placeholder">[ Gráfica de Estado de Salud ]</div>
-    <div class="chart-placeholder">[ Gráfica de Ubicación ]</div> -->
+    <h2>2. Animales por Estado de Salud</h2>
+    <canvas id="estadoSaludChart"></canvas>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      const estadosSalud = /*[[${animalesPorEstadoSalud.keySet()}]]*/ [];
+      const cantidadesSalud = /*[[${animalesPorEstadoSalud.values()}]]*/ [];
 
-    
-
+      const ctxSalud = document
+        .getElementById("estadoSaludChart")
+        .getContext("2d");
+      const estadoSaludChart = new Chart(ctxSalud, {
+        type: "doughnut",
+        data: {
+          labels: estadosSalud,
+          datasets: [
+            {
+              label: "Cantidad de Animales",
+              data: cantidadesSalud,
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.6)",
+                "rgba(255, 206, 86, 0.6)",
+                "rgba(75, 192, 192, 0.6)",
+              ],
+              borderColor: "rgba(255, 255, 255, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+      /*]]>*/
+    </script>
   </body>
 </html>

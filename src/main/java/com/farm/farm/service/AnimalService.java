@@ -72,10 +72,17 @@ public class AnimalService {
         return animalRepository.calcularMediaPeso();
     }
 
+    // Contar animales por especie
     public Map<String, Long> contarAnimalesPorEspecie() {
         List<Animal> animales = animalRepository.findAll();
         return animales.stream()
                 .collect(Collectors.groupingBy(Animal::getEspecie, Collectors.counting()));
+    }
+
+    // Contar animales por el estado de salud
+    public Map<String, Long> contarAnimalesPorEstadoSalud() {
+        return animalRepository.findAll().stream()
+                .collect(Collectors.groupingBy(Animal::getEstadoSalud, Collectors.counting()));
     }
 
 }

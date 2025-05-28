@@ -98,6 +98,8 @@ public class AnimalController {
         model.addAttribute("animalesHeridos", animalService.contarHeridos());
         model.addAttribute("mediaPeso", animalService.calcularMediaPeso());
         model.addAttribute("animalesPorEspecie", animalService.contarAnimalesPorEspecie());
+        model.addAttribute("animalesPorEstadoSalud", animalService.contarAnimalesPorEstadoSalud());
+
         return "animales/chartsAnimals";
     }
 
