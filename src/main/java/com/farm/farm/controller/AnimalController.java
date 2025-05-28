@@ -1,13 +1,19 @@
 package com.farm.farm.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 import com.farm.farm.model.Animal;
 import com.farm.farm.service.AnimalService;
@@ -101,6 +107,35 @@ public class AnimalController {
         model.addAttribute("animalesPorEstadoSalud", animalService.contarAnimalesPorEstadoSalud());
 
         return "animales/chartsAnimals";
+    }
+
+    // EXPORTACIONES DE LOS DATOS DE ANIMALES
+    @GetMapping("/json")
+    public ResponseEntity<byte[]> exportAnimalsToJSON() throws IOException {
+        byte[] data = animalService.exportToJSON();
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=animales.json")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(data);
+    }
+
+    @GetMapping("/csv")
+    public ResponseEntity<String> exportAnimalsToCSV() {
+        String csv = animalService.exportToCSV();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentDisposition(ContentDisposition.builder("attachment").filename("animales.csv").build());
+        headers.setContentType(MediaType.TEXT_PLAIN);
+        return new ResponseEntity<>(csv, headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/excel")
+    public ResponseEntity<byte[]> exportAnimalsToExcel() throws IOException {
+        byte[] data = animalService.exportToExcel();
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=animales.xlsx")
+                .contentType(
+                        MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+                .body(data);
     }
 
 }
