@@ -33,13 +33,13 @@ body {
 
 /* Botones de descarga */
 .download-btn {
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   background-color: #4caf50;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: center;
-  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .download-btn:hover {
@@ -64,6 +64,20 @@ body {
   text-align: center;
   font-size: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Action boton */
+.action-btn {
+  background-color: #79bff8;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+.action-btn:hover {
+  background-color: #2a80d6;
 }
 
 /* Volver botón */
