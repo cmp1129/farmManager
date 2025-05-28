@@ -1,31 +1,49 @@
 .stats-card {
-      border: 1px solid #ddd;
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 0.5rem;
-      background-color: #f9f9f9;
-      text-align: center;
-      flex: 1;
-    }
-    .stats-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .download-btn {
-      padding: 0.5rem 1rem;
-      margin: 0.5rem;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .chart-placeholder {
-      height: 300px;
-      border: 1px dashed #ccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      margin: 1rem 0;
-    }
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0.5rem;
+  background-color: #f9f9f9;
+  text-align: center;
+  flex: 1;
+}
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.download-btn {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.chart-placeholder {
+  height: 300px;
+  border: 1px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  margin: 1rem 0;
+}
+
+volver-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.volver-btn {
+  color: #65451f;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.volver-btn:hover {
+  color: #3e2723;
+}

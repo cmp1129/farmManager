@@ -84,22 +84,20 @@ public class AnimalController {
         return "animales/formularioAnimal"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
     }
 
-    @GetMapping("/animales/estadisticas")
-    public String animalesEstadisticas(Model model) {
-        model.addAttribute("animal", new Animal());
-        return "animales/chartsAnimals"; // thymeleaf lee de /templates pero esta dentro de la carpeta animales
-    }
-
     // @GetMapping("/animales/estadisticas")
-    // public String verEstadisticas(Model model) {
-    // model.addAttribute("totalAnimales", animalService.contarAnimales());
-    // model.addAttribute("animalesEmbarazados", animalService.contarEmbarazados());
-    // model.addAttribute("animalesHeridos", animalService.contarHeridos());
-    // model.addAttribute("mediaPeso", animalService.calcularMediaPeso());
-    // model.addAttribute("resumenAnimales",
-    // animalService.obtenerResumenAnimales());
-
+    // public String animalesEstadisticas(Model model) {
+    // model.addAttribute("animal", new Animal());
     // return "animales/chartsAnimals";
+    // dentro de la carpeta animales
     // }
+
+    @GetMapping("/animales/estadisticas")
+    public String verEstadisticas(Model model) {
+        model.addAttribute("totalAnimales", animalService.contarAnimales());
+        model.addAttribute("animalesEmbarazados", animalService.contarEmbarazadas());
+        model.addAttribute("animalesHeridos", animalService.contarHeridos());
+        model.addAttribute("mediaPeso", animalService.calcularMediaPeso());
+        return "animales/chartsAnimals";
+    }
 
 }

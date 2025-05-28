@@ -41,26 +41,5 @@
     <a th:href="@{/animales/exportar/json}" class="download-btn">Descargar JSON</a>
     <a th:href="@{/animales/exportar/csv}" class="download-btn">Descargar CSV</a>
 
-    <h2>📃 Resumen de Datos</h2>
-    <table border="1" cellpadding="5" cellspacing="0">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Especie</th>
-          <th>Peso (kg)</th>
-          <th>Estado Salud</th>
-          <th>Tipo de Alimento</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr th:each="animal : ${resumenAnimales}">
-          <td th:text="${animal.nombre}">Nombre</td>
-          <td th:text="${animal.especie}">Especie</td>
-          <td th:text="${animal.peso}">0</td>
-          <td th:text="${animal.estadoSalud}">Salud</td>
-          <td th:text="${animal.tipoAlimento}">Alimento</td>
-        </tr>
-      </tbody>
-    </table>
   </body>
 </html>

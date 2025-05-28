@@ -49,4 +49,24 @@ public class AnimalService {
         return animalRepository.findDistinctUbicaciones();
     }
 
+    // Contar todos los animales
+    public long contarAnimales() {
+        return animalRepository.contarAnimales();
+    }
+
+    // Contar embarazadas
+    public long contarEmbarazadas() {
+        return animalRepository.contarEmbarazadas();
+    }
+
+    // Contar heridos
+    public long contarHeridos() {
+        return animalRepository.contarHeridos();
+    }
+
+    // Calcular media de peso
+    public double calcularMediaPeso() {
+        return animalRepository.calcularMediaPeso();
+    }
+
 }
