@@ -10,9 +10,10 @@ En esta primera fase se ha implementado el módulo de **Gestión de Animales**, 
 
 - 📃 Listar todos los animales registrados.
 - 🐾 Filtrar animales por especie.
-- 🔍 Consultar detalle de un animal por ID.
-- 🗑️ Eliminar animales por ID.
+- 🔍 Consultar detalle de un animal.
+- 🗑️ Eliminar animales.
 - ✏️ Añadir y guardar nuevos animales.
+- 📊 Dashboard y Estadísticas de los animales de tu BD.
 
 ---
 
@@ -46,6 +47,7 @@ src/
 - **Thymeleaf**
 - **H2 Database (en desarrollo)**
 - **Gradle**
+- **Charts.js**
 
 ---
 
@@ -76,18 +78,6 @@ El objetivo es extender FarmManager Pro hasta cubrir todas las áreas habituales
   - Registro de ingresos y gastos.
   - Facturación.
   - Estadísticas de rentabilidad.
-
-- 📊 **Dashboard de Informes**
-
-  - Gráficas de producción, rentabilidad y tareas pendientes.
-
-- 🔐 **Gestión de Usuarios y Seguridad**
-
-  - Sistema de roles (Administrador, Encargado, Veterinario…)
-  - Spring Security con autenticación y control de accesos.
-
-- 📅 **Calendario de Tareas**
-  - Recordatorios de vacunas, cosechas, mantenimientos.
 
 ---
 
