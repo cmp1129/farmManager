@@ -29,7 +29,13 @@ public class CultivoController {
     public String listarTodos(Model model) {
         List<Cultivo> cultivos = cultivoService.listarTodos();
         model.addAttribute("cultivos", cultivos);
-        return "plantillaCultivos";
+        // return "plantillaCultivos"; // aun no esta implementada
+        return "mantenimiento";
+    }
+
+    @GetMapping("/cultivos/nuevo")
+    public String laddCultivos(Model model) {
+        return "mantenimiento";
     }
 
     // Listar solo Plantas Medicinales

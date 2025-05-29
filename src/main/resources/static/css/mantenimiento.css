@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fef9f5;
+  text-align: center;
+  padding: 50px;
+}
+
+.mantenimiento-box {
+  background: #fff3e6;
+  border: 2px solid #ffa500;
+  border-radius: 20px;
+  padding: 30px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 32px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  color: #555;
+}
+
+.volver-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #ffa500;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.volver-btn:hover {
+  background: #ff7f00;
+}
